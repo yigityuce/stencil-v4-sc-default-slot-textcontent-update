@@ -9,6 +9,17 @@
     <script nomodule src="/build/stencil-v4-sc-default-slot-textcontent-update.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <my-component>
+      <span slot="prefix">Prefix</span>
+      <span slot="suffix">Suffix</span>
+      Content text
+    </my-component>
+    <button onclick="onButtonClick()" style="margin-top: 48px">Update content</button>
   </body>
+  <script>
+    function onButtonClick() {
+      const myComponent = document.querySelector('my-component');
+      myComponent && (myComponent.textContent = `${Date.now()}`);
+    }
+  </script>
 </html>
