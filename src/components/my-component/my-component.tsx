@@ -10,9 +10,13 @@ export class MyComponent {
   render() {
     return (
       <Host>
-        <slot name="prefix" />
+        <div class="some-fancy-styles" id="prefix-wrapper">
+          <slot name="prefix" />
+        </div>
         <slot />
-        <slot name="suffix" />
+        <div class="some-fancy-styles" id="suffix-wrapper">
+          <slot name="suffix" />
+        </div>
       </Host>
     );
   }

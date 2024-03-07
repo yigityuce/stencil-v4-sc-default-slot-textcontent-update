@@ -12,14 +12,15 @@
     <my-component>
       <span slot="prefix">Prefix</span>
       <span slot="suffix">Suffix</span>
-      Content text
+      <div>Content text</div>
     </my-component>
     <button onclick="onButtonClick()" style="margin-top: 48px">Update content</button>
   </body>
   <script>
     function onButtonClick() {
-      const myComponent = document.querySelector('my-component');
-      myComponent && (myComponent.textContent = `${Date.now()}`);
+      const contentTextWrapper = document.querySelector('my-component div:not([slot])');
+      console.log('not slotted:', contentTextWrapper)
+      contentTextWrapper && (contentTextWrapper.textContent = `${Date.now()}`);
     }
   </script>
 </html>
